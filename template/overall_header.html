@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}" xml:lang="{S_USER_LANG}" data-ng-app>
+<head>
+
+<meta charset="{S_CONTENT_ENCODING}" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="shortcut icon" href="{T_THEME_PATH}/images/favicon.ico" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+{META}
+<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>
+
+<!-- IF S_ENABLE_FEEDS -->
+	<!-- IF S_ENABLE_FEEDS_OVERALL --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {SITENAME}" href="{U_FEED}" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_NEWS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_NEWS}" href="{U_FEED}?mode=news" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_FORUMS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_ALL_FORUMS}" href="{U_FEED}?mode=forums" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPICS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_TOPICS_NEW}" href="{U_FEED}?mode=topics" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPICS_ACTIVE --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_TOPICS_ACTIVE}" href="{U_FEED}?mode=topics_active" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_FORUM and S_FORUM_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FORUM} - {FORUM_NAME}" href="{U_FEED}?f={S_FORUM_ID}" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPIC and S_TOPIC_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_TOPIC} - {TOPIC_TITLE}" href="{U_FEED}?f={S_FORUM_ID}&amp;t={S_TOPIC_ID}" /><!-- ENDIF -->
+<!-- ENDIF -->
+
+<!--
+	phpBB style name: RuRanobe
+	Based on style:   prosilver & ComBoot (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by: Florian Gareis (http://www.florian-gareis.de)
+	Modified by: Antosik (http://www.antosikkk.xyz)
+	Version: 1.0
+-->
+
+<script type="text/javascript">
+// <![CDATA[
+	var jump_page = '{LA_JUMP_PAGE}:';
+	var on_page = '{ON_PAGE}';
+	var per_page = '{PER_PAGE}';
+	var base_url = '{A_BASE_URL}';
+	var style_cookie = 'phpBBstyle';
+	var style_cookie_settings = '{A_COOKIE_SETTINGS}';
+	var onload_functions = new Array();
+	var onunload_functions = new Array();
+
+	<!-- IF S_USER_PM_POPUP and S_NEW_PM -->
+		var url = '{UA_POPUP_PM}';
+		window.open(url.replace(/&amp;/g, '&'), '_phpbbprivmsg', 'height=225,resizable=yes,scrollbars=yes, width=400');
+	<!-- ENDIF -->
+
+	/**
+	* Find a member
+	*/
+	function find_username(url)
+	{
+		popup(url, 760, 570, '_usersearch');
+		return false;
+	}
+
+	/**
+	* New function for handling multiple calls to window.onload and window.unload by pentapenguin
+	*/
+	window.onload = function()
+	{
+		for (var i = 0; i < onload_functions.length; i++)
+		{
+			eval(onload_functions[i]);
+		}
+	};
+
+	window.onunload = function()
+	{
+		for (var i = 0; i < onunload_functions.length; i++)
+		{
+			eval(onunload_functions[i]);
+		}
+	};
+
+// ]]>
+</script>
+<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/styleswitcher.js"></script>
+<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/forum_fn.js"></script>
+
+<link href="{T_THEME_PATH}/print.css" rel="stylesheet" type="text/css" media="print" title="printonly" />
+<link href="{T_STYLESHEET_LINK}" rel="stylesheet" type="text/css" media="screen, projection" />
+
+<!-- INCLUDE additional_files.html -->
+
+	<link href="{T_THEME_PATH}/style.css" rel="stylesheet" type="text/css" media="screen, projection" />
+	<link href="{T_THEME_PATH}/ForumStyle.css" rel="stylesheet" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="{T_THEME_PATH}/night.css">
+<!-- IF S_CONTENT_DIRECTION eq 'rtl' -->
+	<link href="{T_THEME_PATH}/bidi.css" rel="stylesheet" type="text/css" media="screen, projection" />
+<!-- ENDIF -->
+
+</head>
+
+<body id="phpbb" class="section-{SCRIPT_NAME} {S_CONTENT_DIRECTION}">
+	<a id="top" accesskey="t"></a>
+	<!-- INCLUDE overall_header_nav.html -->
+	 <nav class="navbar navbar-default navbar-lower" role="navigation">
+        <div class="container">
+            <div class="collapse navbar-collapse collapse-buttons" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form visible-xs-block">
+                    <button class="btn btn-default">Регистрация</button>
+                    <button class="btn btn-blue" data-toggle="modal" data-target="#loginModal">Вход</button>
+                </form>
+                <ul class="nav navbar-nav">
+                    <li><a href="/updates">Обновления</a></li>
+                    <li><a href="/projects">Проекты</a></li>
+                    <li><a href="/">Набор в команду</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/">О нас</a></li>
+                    <li><a href="/diary">Дневник Руйки</a></li>
+                    <li><a href="/">Помощь</a></li>
+                    <li><a href="/">Связь</a></li>
+                    <li><a href="/f/">Форум</a></li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <!--<a href="#" class="btn btn-danger">Трансляции</a>-->
+                    <a href="https://vk.com/ru.ranobe" class="btn btn-blue"><i class="fa fa-vk"></i></a>
+                    <a href="#" class="btn btn-blue"><i class="fa fa-rss"></i></a>
+                    <a href="#" class="btn btn-blue daynight-button"><i class="fa fa-sun-o"></i></a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+	<div class="container" id="content-wrapper">
+		<div class="h3" style="margin-top:0 !important">Форум</div>
+		<div class="row">
+			<div class="col-md-8">
+				<a href="{U_INDEX}" class="btn btn-grey" accesskey="h" title="{L_INDEX}"><i class="glyphicon glyphicon-home"></i> {L_INDEX}</a>
+				<!-- IF not S_IS_BOT and S_USER_LOGGED_IN -->
+					<!-- IF S_DISPLAY_MEMBERLIST -->
+						<a href="{U_MEMBERLIST}" class="btn btn-grey" title="{L_MEMBERLIST_EXPLAIN}"><i class="fa fa-user"></i> {L_MEMBERLIST}</a>
+					<!-- ENDIF -->
+						<a href="{U_FAQ}" class="btn btn-grey" title="{L_FAQ_EXPLAIN}"><i class="fa fa-commenting"></i> {L_FAQ}</a>
+				<!-- ENDIF -->
+			</div>
+			<div class="col-md-4" align="right">
+				<form class="form-inline" method="get" id="search" action="{U_SEARCH}">
+					<div class="form-group">
+						<input placeholder="{LA_SEARCH_FORUM}" size="20" id="search_keywords" name="keywords" type="text" maxlength="128" class="form-control">
+						{S_SEARCH_LOCAL_HIDDEN_FIELDS}
+						
+					</div><button type="submit" class="btn btn-blue" data-original-title="" title=""><i class="fa fa-search"></i></button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<a id="start_here"></a>
+	<div class="container" id="content-wrapper">
+		<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="alert alert-danger rules">
+						<strong>{L_INFORMATION}:</strong> {L_BOARD_DISABLED}
+					</div>
+				</div>
+			</div>
+		<!-- ENDIF -->

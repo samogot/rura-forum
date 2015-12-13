@@ -1,0 +1,72 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF S_DISPLAY_SEARCH or (S_USER_LOGGED_IN and not S_IS_BOT) -->
+	<div class="row">
+		<!-- IF S_DISPLAY_SEARCH -->
+			<div class="col-md-6">
+				<div class="btn-group">
+					<a href="{U_SEARCH_UNANSWERED}" class="btn btn-default btn-sm">{L_SEARCH_UNANSWERED}</a>
+					<a href="{U_SEARCH_ACTIVE_TOPICS}" class="btn btn-default btn-sm">{L_SEARCH_ACTIVE_TOPICS}</a>
+				</div>
+			</div>
+		<!-- ENDIF -->
+		<div class="col-md-6 <!-- IF not S_DISPLAY_SEARCH -->col-md-offset-6<!-- ENDIF -->">
+			<div class="pull-right">
+				<p class="greyText">{CURRENT_TIME}</p>
+			</div>
+		</div>
+	</div>
+<!-- ENDIF -->
+
+<!-- INCLUDE forumlist_body.html -->
+
+<!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
+	<!-- INCLUDE login_panel.html -->
+<!-- ENDIF -->
+
+<!-- IF S_DISPLAY_ONLINE_LIST -->
+	<!-- INCLUDE online_panel.html -->
+<!-- ENDIF -->
+
+<!-- IF S_DISPLAY_BIRTHDAY_LIST and BIRTHDAY_LIST -->
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title"></i> {L_BIRTHDAYS}</h3>
+	</div>
+	<div class="panel-body">
+		<p><!-- IF BIRTHDAY_LIST -->{L_CONGRATULATIONS}: <strong>{BIRTHDAY_LIST}</strong><!-- ELSE -->{L_NO_BIRTHDAYS}<!-- ENDIF --></p>
+	</div>
+</div>
+<!-- ENDIF -->
+
+<!-- IF NEWEST_USER -->
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title"></i> СТАТИСТИКА</h3>
+	</div>
+	<div class="panel-body">
+		<span class="pull-left forum-icon"><a href="#" class="btn-default"><i class="fa fa-pie-chart"></i></a></span>
+		<span style="line-height: 32px;">{TOTAL_POSTS} &bull; {TOTAL_TOPICS} &bull; {TOTAL_USERS} &bull; {NEWEST_USER} &bull; {RECORD_USERS}</span>
+	</div>
+</div>
+<!-- ENDIF -->
+
+<div class="row">
+	<div class="col-md-10">
+		<a class="btn btn-grey" href="{U_INDEX}" accesskey="h" title="{L_INDEX}"><i class="glyphicon glyphicon-home"></i> Список форумов</a>
+		<!-- IF not S_IS_BOT --><a class="btn btn-grey" href="{U_DELETE_COOKIES}"><i class="fa fa-recycle"></i> Удалить cookies форума</a> <!-- ENDIF -->
+	</div>
+	<div class="col-md-2">
+		<span class="greyText">{S_TIMEZONE}</span>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6">
+		<p class="greyText {S_CONTENT_FLOW_END}<!-- IF S_USER_LOGGED_IN --> pull-right<!-- ENDIF -->"><!-- IF S_USER_LOGGED_IN -->{LAST_VISIT_DATE}<!-- ELSE -->{CURRENT_TIME}<!-- ENDIF --></p>
+	</div>
+	<div class="col-md-6">
+		<!-- IF S_USER_LOGGED_IN --><p class="greyText pull-left">{CURRENT_TIME}</p><!-- ENDIF -->
+	</div>
+</div>
+
+<!-- INCLUDE overall_footer.html -->

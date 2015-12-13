@@ -1,0 +1,72 @@
+<nav class="navbar navbar-default navbar-top navbar-static-top" id="header-nav" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img alt="RuRanobe" src="styles/RuRanobe/theme/images/RuRa/logo1.png">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <div class="secondLogoContainer">
+                    <div class="secondLogo"></div>
+                </div>
+                <form class="navbar-form navbar-right">
+                <!-- IF not S_IS_BOT and S_USER_LOGGED_IN -->
+                <button type="button" class="btn btn-white" > <b>Ник:</b> {S_USERNAME} </button>
+	            <!--<button type="button" class="btn btn-white" > <i class="fa fa-briefcase"></i>
+				</button>-->
+                <button type="button" class="btn btn-white" ><a href="{U_PROFILE}" title="{L_PROFILE}" accesskey="e"><i class="fa fa-cog"></i> </a>
+                </button>
+				<a href="{U_LOGIN_LOGOUT}" class="btn-reg" title="{L_LOGIN_LOGOUT}" accesskey="x" ><button class="btn btn-danger" type="button"><i class="fa fa-sign-out"></i> {L_LOGIN_LOGOUT}</button></a>
+                <!-- ENDIF -->
+                <!-- IF not S_USER_LOGGED_IN -->
+                <a href="./register"><button class="btn btn-white">Регистрация</button></a>
+                <button class="btn btn-outline" data-toggle="modal" data-target="#loginModal">Вход</button>
+                <!-- ENDIF -->  	
+			</form>
+	</div>
+	</div>
+</nav>
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true" style="padding-right: 17px;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="loginModalLabel">Вход</h4>
+            </div>
+            <div class="modal-body">
+                <form action="{S_LOGIN_ACTION}" method="post" id="navloginform" name="loginform">
+                    <div class="form-group">
+                        <input type="text" placeholder="{L_USERNAME}" name="username" id="username" size="10" class="form-control" title="{L_USERNAME}"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="{L_PASSWORD}" name="password" id="password" size="10" class="form-control" title="{L_PASSWORD}"/>
+                    </div>
+                    <!-- IF S_DISPLAY_FULL_LOGIN -->
+                        <div class="checkbox">
+                            <!-- IF S_AUTOLOGIN_ENABLED --><label for="autologin"><input type="checkbox" name="autologin" id="autologin" tabindex="4" /> {L_LOG_ME_IN}</label><!-- ENDIF -->
+                            <br><label for="viewonline"><input type="checkbox" name="viewonline" id="viewonline" tabindex="5" /> {L_HIDE_ME}</label>
+                        </div>
+                    <!-- ENDIF -->
+                    {S_LOGIN_REDIRECT}
+                    <button type="submit" name="login" class="btn btn-primary btn-block"><i class="glyphicon glyphicon-log-in"></i> {L_LOGIN}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop" style="display:none"></div>
+<script>
+    $('button.login').click(function () {
+        $(".modal-backdrop").show();
+        $(".loginBlock").show();
+    });
+    $('.loginClose').click(function () {
+        $(".modal-backdrop").hide();
+        $(".loginBlock").hide();
+    });
+</script>

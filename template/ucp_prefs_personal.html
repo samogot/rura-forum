@@ -59,13 +59,6 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-4" for="popuppm0">{L_POPUP_ON_PM}:</label>
-						<div class="col-md-8">
-							<label for="popuppm1" class="radio-inline"><input type="radio" name="popuppm" id="popuppm1" value="1"<!-- IF S_POPUP_PM --> checked="checked"<!-- ENDIF --> /> {L_YES}</label> 
-							<label for="popuppm0" class="radio-inline"><input type="radio" name="popuppm" id="popuppm0" value="0"<!-- IF not S_POPUP_PM --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
-						</div>
-					</div>
-					<div class="form-group">
 						<label class="control-label col-md-4" for="lang">{L_BOARD_LANGUAGE}:</label>
 						<div class="col-md-8">
 							<select name="lang" id="lang">{S_LANG_OPTIONS}</select>
@@ -79,19 +72,7 @@
 							</div>
 						</div>
 					<!-- ENDIF -->
-					<div class="form-group">
-						<label class="control-label col-md-4" for="timezone">{L_BOARD_TIMEZONE}:</label>
-						<div class="col-md-8">
-							<select name="tz" id="timezone" class="autowidth">{S_TZ_OPTIONS}</select>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-4" for="dst1">{L_BOARD_DST}:</label>
-						<div class="col-md-8">
-							<label for="dst1" class="radio-inline"><input type="radio" name="dst" id="dst1" value="1"<!-- IF S_DST --> checked="checked"<!-- ENDIF --> /> {L_YES}</label> 
-							<label for="dst0" class="radio-inline"><input type="radio" name="dst" id="dst0" value="0"<!-- IF not S_DST --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
-						</div>
-					</div>
+					<!-- INCLUDE timezone_option.html -->
 					<div class="form-group">
 						<label class="control-label col-md-4" for="dateformat">{L_BOARD_DATE_FORMAT}:</label>
 						<div class="col-md-8">

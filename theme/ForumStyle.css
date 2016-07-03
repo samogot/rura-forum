@@ -29,7 +29,7 @@ thead.topiclist a, thead.topiclist a:hover, thead.topiclist a:visited{
     text-transform: uppercase;
 }
 .btn-breadcrumb a, .btn-breadcrumb a:hover, .btn-breadcrumb a:visited{
-	color: #4d4d4d !important;
+	color: #fff !important;
 }
 .panel-info {
 	border-color: #f2f2f2;
@@ -127,4 +127,65 @@ blockquote .fa-quote-left{
     border-width: 0px !important;
     border-bottom-width: 1px !important;
 
+}
+/* Breadcrumb
+----------------------------------------*/
+
+.btn-breadcrumb .btn:not(:last-child):after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  left: 100%;
+  z-index: 3;
+}
+.btn-breadcrumb .btn:not(:last-child):before {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid rgb(173, 173, 173);
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  margin-left: 1px;
+  left: 100%;
+  z-index: 3;
+}
+
+/** The Spacing **/
+.btn-breadcrumb .btn {
+  padding:6px 12px 6px 24px;
+  color: #fff;
+}
+.btn-breadcrumb .btn:first-child {
+  padding:6px 6px 6px 10px;
+}
+.btn-breadcrumb .btn:last-child {
+  padding:6px 18px 6px 24px;
+}
+.btn-breadcrumb .btn:only-child {
+  padding: 6px 10px !important;
+}
+
+/** Primary button **/
+.btn-breadcrumb .btn.btn-blue:not(:last-child):after {
+  border-left: 10px solid #60a9d4;
+}
+.btn-breadcrumb .btn.btn-blue:not(:last-child):before {
+  border-left: 10px solid #2e6da4;
+}
+.btn-breadcrumb .btn.btn-blue:hover:not(:last-child):after {
+  border-left: 10px solid #60a9d4;
+}
+.btn-breadcrumb .btn.btn-blue:hover:not(:last-child):before {
+  border-left: 10px solid #285e8e;
 }

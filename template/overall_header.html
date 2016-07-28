@@ -106,6 +106,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/updates">Обновления</a></li>
                     <li><a href="/projects">Проекты</a></li>
+                    <li><a href="/works">Works</a></li>
                     <li><a href="/recruit">Набор в команду</a></li>
                     <li><a href="/faq">FAQ</a></li>
                     <li><a href="/aboutus">О нас</a></li>
@@ -114,9 +115,11 @@
                 </ul>
                 <form class="navbar-form navbar-right">
                     <!--<a href="#" class="btn btn-danger">Трансляции</a>-->
-                    <a href="https://vk.com/ru.ranobe" class="btn btn-blue"><i class="fa fa-vk"></i></a>
-                    <a href="#" class="btn btn-blue"><i class="fa fa-rss"></i></a>
-                    <a href="#" class="btn btn-blue daynight-button"><i class="fa fa-sun-o"></i></a>
+                    <a href="#" class="btn btn-primary" disabled="disabled"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/RuRa_team" class="btn btn-primary"><i class="fa fa-twitter"></i></a>
+                    <a href="https://vk.com/ru.ranobe" class="btn btn-primary"><i class="fa fa-vk"></i></a>
+                    <a href="https://feeds.feedburner.com/ruranobe" class="btn btn-primary"><i class="fa fa-rss"></i></a>
+                    <a href="#" class="btn btn-primary daynight-button"><i class="fa fa-sun-o"></i></a>
                 </form>
             </div>
         </div>
@@ -137,7 +140,7 @@
 			<div class="col-md-4" align="right">
 				<form class="form-inline" method="get" id="search" action="{U_SEARCH}">
 					<div class="form-group">
-						<input placeholder="{LA_SEARCH_FORUM}" size="20" id="search_keywords" name="keywords" type="text" maxlength="128" class="form-control">
+						<input placeholder="{L_SEARCH_FORUM}" size="20" id="search_keywords" name="keywords" type="text" maxlength="128" class="form-control">
 						{S_SEARCH_LOCAL_HIDDEN_FIELDS}
 						
 					</div><button type="submit" class="btn btn-blue" data-original-title="" title=""><i class="fa fa-search"></i></button>

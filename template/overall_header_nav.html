@@ -16,12 +16,8 @@
                 </div>
                 <form class="navbar-form navbar-right">
                 <!-- IF not S_IS_BOT and S_USER_LOGGED_IN -->
-                <button type="button" class="btn btn-white" > <b>Ник:</b> {S_USERNAME} </button>
-	            <!--<button type="button" class="btn btn-white" > <i class="fa fa-briefcase"></i>
-				</button>-->
-                <button type="button" class="btn btn-white" ><a href="{U_PROFILE}" title="{L_PROFILE}" accesskey="e"><i class="fa fa-cog"></i> </a>
-                </button>
-				<a href="{U_LOGIN_LOGOUT}" class="btn-reg" title="{L_LOGIN_LOGOUT}" accesskey="x" ><button class="btn btn-danger" type="button"><i class="fa fa-sign-out"></i> {L_LOGIN_LOGOUT}</button></a>
+                <a href="{U_PROFILE}" title="{L_PROFILE}" accesskey="e"><button type="button" class="btn btn-white">{S_USERNAME}</button></a>
+		<a href="{U_LOGIN_LOGOUT}" class="btn-reg" title="{L_LOGIN_LOGOUT}" accesskey="x" ><button class="btn btn-danger" type="button"><i class="fa fa-sign-out"></i> {L_LOGIN_LOGOUT}</button></a>
                 <!-- ENDIF -->
                 <!-- IF not S_USER_LOGGED_IN -->
                 <a href="./register"><button class="btn btn-white">Регистрация</button></a>

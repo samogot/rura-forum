@@ -149,3 +149,17 @@ body.night .panel-primary>.panel-heading, body.night .panel-default>.panel-headi
 body.night .forumtitle,body.night  .forumtitle:hover,body.night  .forumtitle:visited{
     color: #DFDFDF;
 }
+
+
+body.night .btn-breadcrumb .btn:not(:last-child):before {
+    border-left: 10px solid #285e8e;
+}
+body.night .btn-breadcrumb .btn:not(:last-child):after {
+    border-left: 10px solid #4E4E4E;
+}
+body.night .btn-breadcrumb .btn.btn-blue:not(:last-child):after {
+    border-left: 10px solid #282828;
+}
+body.night .btn-breadcrumb .btn.btn-blue:hover:not(:last-child):before {
+    border-left: 10px solid #FFF;
+}
